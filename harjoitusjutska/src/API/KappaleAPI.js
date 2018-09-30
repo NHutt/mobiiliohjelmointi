@@ -1,7 +1,7 @@
 const url = 'http://localhost:8080';
 
-export function haeKaikkiMatkat(callback) {
-	fetch(url + "/matka/all", {
+export function haeKaikkiKappaleet(callback) {
+	fetch(url + "/kappale/all", {
 		method: "GET"
 	})
 	.then ((response) => response.json())
@@ -13,11 +13,11 @@ export function haeKaikkiMatkat(callback) {
 	})
 }
 
-export function lisaaMatkaKantaan(matka, callback) {
-	fetch(url + "/matka/add", {
+export function lisaaKappaleKantaan(kappale, callback) {
+	fetch(url + "/kappale/add", {
 		method: "POST",
 		headers: {'Content-Type': 'application/json'},
-		body: JSON.stringify(matka)
+		body: JSON.stringify(kappale)
 	})
 	.then (function (response) {
 		callback(response.status);

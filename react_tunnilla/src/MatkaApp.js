@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 // import Matka from './components/Matka';
 // JavaScript
-// import Matkalomake from './components/Matkalomake';
+import Matkalomake from './components/Matkalomake';
 //import Sananlasku from './components/Sananlasku';
 //import Saa from './components/Saa';
 import Matkalista from './components/Matkalista'; //defaultin import
-import {haeKaikkiMatkat} from './API/MatkaAPI'; // ei-defaultin import, huom {}
+//import {haeKaikkiMatkat} from './API/MatkaAPI'; // ei-defaultin import, huom {}
 
 //const matkatieto = { otsikko: 'Lomalla', paiva: '15.8.2018', paikka: 'Lohja', saa: 'Sateinen, +19', kuvaus: 'Lomalla Lohjalla' }
 
@@ -48,7 +48,7 @@ class MatkaApp extends Component {
 
   componentDidMount = () => {
 
-    haeKaikkiMatkat(this.kasitteleVastaus);
+    //haeKaikkiMatkat(this.kasitteleVastaus);
 
   }
 
@@ -61,7 +61,8 @@ class MatkaApp extends Component {
 
     }else {
 
-      alert("Virhe");
+      alert("Listaus ei onnistu");
+      // Anna käyttäjälle virheilmoitus laittamalla tilaan sitä varten muuttuja
 
     }
 
@@ -79,9 +80,10 @@ class MatkaApp extends Component {
          }
         <Sananlasku />
         <Saa />
-        */}
 
         <Matkalista matkat={this.state.matkat} />
+        */ }
+        <Matkalomake />
       </div>
     );
   }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Kappale from './components/Kappale';
+//import Kappale from './components/Kappale';
 import Kappalelomake from './components/Kappalelomake';
 import Kappalelista from './components/Kappalelista';
 
 //const kappaletieto = { artisti: 'ONF', kappale: 'Complete', musiikkiArvosana: '10', mvArvosana: '8', koreografiaArvosana: '8', lyriikatArvosana: '9' }
 
-const kappaleita = [
+/* const kappaleita = [
   {
     artisti: 'ONF',
     kappale: 'Complete',
@@ -64,8 +64,33 @@ const kappaleita = [
   }
 ];
 
+*/
+
 
 class KappaleApp extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {kappaleet: []};
+  }
+
+  componentDidMount = () => {
+
+  }
+
+  kasitteleVastaus = (data, status) => {
+
+    if (status !== 503) {
+      this.setState({kappaleet: data});
+
+    }else {
+
+      alert("Listaus ei onnistu");
+
+    }
+
+  }
+
   render() {
     return (
       <div>
@@ -74,8 +99,6 @@ class KappaleApp extends Component {
       }
 
         <Kappalelomake />
-
-        <Kappalelista kappaleet={kappaleita} />
 
       </div>
     );
