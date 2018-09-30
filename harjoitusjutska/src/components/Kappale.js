@@ -16,7 +16,8 @@ function Kappale(props) {
 const styles = {
   kappaleTyyli: {
     color: 'red',
-    marginTop: '1cm'
+    marginTop: '1cm',
+    fontFamily: 'Courier New'
   }
 }
 

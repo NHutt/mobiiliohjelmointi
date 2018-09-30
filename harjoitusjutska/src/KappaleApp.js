@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import Kappale from './components/Kappale';
-// JavaScript
-// import Kappalelomake from './components/Kappalelomake';
+import Kappale from './components/Kappale';
+import Kappalelomake from './components/Kappalelomake';
 import Kappalelista from './components/Kappalelista';
 
 //const kappaletieto = { artisti: 'ONF', kappale: 'Complete', musiikkiArvosana: '10', mvArvosana: '8', koreografiaArvosana: '8', lyriikatArvosana: '9' }
@@ -70,15 +69,14 @@ class KappaleApp extends Component {
   render() {
     return (
       <div>
-      {/*
+      {
         <p>Rautaista K-poppia</p>
-        <Kappale kappale={ kappaletieto }/>
+      }
 
         <Kappalelomake />
-         }
-        */}
 
         <Kappalelista kappaleet={kappaleita} />
+
       </div>
     );
   }

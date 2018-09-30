@@ -4,10 +4,12 @@ import React, { Component } from 'react';
 // import Matkalomake from './components/Matkalomake';
 //import Sananlasku from './components/Sananlasku';
 //import Saa from './components/Saa';
-import Matkalista from './components/Matkalista';
+import Matkalista from './components/Matkalista'; //defaultin import
+import {haeKaikkiMatkat} from './API/MatkaAPI'; // ei-defaultin import, huom {}
 
 //const matkatieto = { otsikko: 'Lomalla', paiva: '15.8.2018', paikka: 'Lohja', saa: 'Sateinen, +19', kuvaus: 'Lomalla Lohjalla' }
 
+/*
 const mat = [
   {
     otsikko: 'Lomalla',
@@ -32,8 +34,40 @@ const mat = [
   }
 ];
 
+*/
+
 
 class MatkaApp extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {matkat: []};
+  }
+
+  //Pyytää kannasta hakua
+
+  componentDidMount = () => {
+
+    haeKaikkiMatkat(this.kasitteleVastaus);
+
+  }
+
+  //Käsittelee saadun vastauksen
+
+  kasitteleVastaus = (data, status) => {
+
+    if (status !== 503) {
+      this.setState({matkat: data});
+
+    }else {
+
+      alert("Virhe");
+
+    }
+
+  }
+
+
   render() {
     return (
       <div>
@@ -47,7 +81,7 @@ class MatkaApp extends Component {
         <Saa />
         */}
 
-        <Matkalista matkat={mat} />
+        <Matkalista matkat={this.state.matkat} />
       </div>
     );
   }

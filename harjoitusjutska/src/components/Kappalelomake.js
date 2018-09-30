@@ -32,6 +32,7 @@ class Kappalelomake extends Component {
           <label  htmlFor='lyriikatArvosana' style={styles.labelStyle}>Arvosana lyriikoille</label>
           <input style={styles.inputStyle}  type='text' name='lyriikatArvosana' value={this.state.lyriikatArvosana} onChange={this.muuta} />
           <br />
+          <br />
           <input type='submit' value='Talleta' onClick={this.lisaa} />
         </form>
     );
